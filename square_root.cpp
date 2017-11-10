@@ -9,10 +9,10 @@ double square(double x)
 
 void print_square(double x)
 {
-  cout << "the square of" << x << "is" << square(x) << "ln";
+  cout << "the square of " << x << " is " << square(x) << "\n";
 }
 
 int main()
 {
-  print_square(1.234)
+  print_square(1.234);
 }
