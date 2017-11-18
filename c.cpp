@@ -16,7 +16,7 @@ public:
   Pt(const Pt& p) {
     x = p.x;
     y = p.y;
-    count << "copy" << endl;
+    cout << "copy" << endl;
   }
 
   // operator overload
@@ -33,35 +33,36 @@ public:
     cout << "bye" << endl;
   }
 
-  void print print() {
+  void print() {
     cout << "(" << x << "," << this->y << ")" << endl;
   }
+};
 
 
   // void transpose(Pt& p) // passing by reference
-  Pt extned(Pt p6) { // Case 2: copy consturction when passing by value
-    p6.x *= 2;
-    p6.y *= 2;
-    return p6; // Case 3: copy construction when returning. 
+Pt extend(Pt p6) { // Case 2: copy consturction when passing by value
+  p6.x *= 2;
+  p6.y *= 2;
+  return p6; // Case 3: copy construction when returning. 
+}
+
+
+int main() {
+  {
+    // p1, p2, p3 will come and go in this local scope
+    Pt p1;
+    Pt p2;
+    Pt p3;
   }
 
+  Pt p4(5);
+  Pt p5(p4); // Case 1: direct copy construction
+  p4 = extend(p5);
+  p4.print();
 
-  int main() {
-    {
-      // p1, p2, p3 will come and go in this local scope
-      Pt p1;
-      Pt p2;
-      Pt p3;
-    }
+  // p1.print(); //C++to-C translator might change it to Pt_print(&pt)
+}
 
-    Pt p4(5);
-    Pt p5(p4); // Case 1: direct copy construction
-    p4 = extend(p5);
-    p4.print();
-
-    // p1.print(); //C++to-C translator might change it to Pt_print(&pt)
-  }
-};
 
 
 
