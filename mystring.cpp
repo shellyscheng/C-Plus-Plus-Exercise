@@ -1,5 +1,7 @@
 /*
  * mystring.cpp
+ *
+ * operator overload
  */
 
 #include <cstdio>
@@ -90,7 +92,50 @@ MyString operator+(const MyString& s1, const Mystring& s2)
 
 }
 
+// put-to operator
 
+ostream& operator<<(ostream& os, const MyString& s)
+{
+  os << s.data;
+  return os;
+}
+
+// get-from operator
+
+istream& operator>>(istream& is, const MyString& s)
+{
+  // a cheating way. Use C++'s string class
+
+  string tmp;
+
+  is >> tmp;
+
+  delete[] s.data;
+
+  s.len = strlen(tmp.c_str());
+  s.data = new char[s.len + 1];
+  strcpy(s.data, tmp.c_str());
+
+  return is;
+
+}
+
+
+// operator[] - noramlly, this function should be decleared inline
+
+char& MyString::operator[](int i)
+{
+  return data[i];
+}
+
+
+// operator[] const - this function should also be decleared inline
+
+const char& MyString::operator[](int i) const
+{
+  // casting using the above function
+  return ((MyString&)*this)[i];
+}
 
 
 
