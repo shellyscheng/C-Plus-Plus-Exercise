@@ -81,6 +81,13 @@ MyString operator+(const MyString& s1, const Mystring& s2)
 
   delete[] tmp.data;
 
+  tmp.len = s1.len + s2.len;
+  tmp.data = new char[tmp + 1];
+  strcpy(tmp.data, s1.data);
+  strcat(tmp.data, s2.data);
+
+  return tmp;
+
 }
 
 
