@@ -9,3 +9,20 @@
 
 using namespace std;
 
+class MyString {
+public:
+  // default constructor
+  MyString();
+
+  // constructor
+  MyString(const char* p);
+
+  // destructor
+  ~MyString();
+
+  // copy constuctor
+  MyString(const MyString& s);
+
+  // copy assignment
+  MyString& operator=(const MyString& s);
+}
