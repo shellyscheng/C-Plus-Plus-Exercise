@@ -13,7 +13,7 @@
 MyString::MyString()
 {
   data = new char[1];
-  data[0] = "\0";
+  data[0] = '\0';
 
   len = 0;
 }
@@ -84,7 +84,7 @@ MyString operator+(const MyString& s1, const MyString& s2)
   delete[] tmp.data;
 
   tmp.len = s1.len + s2.len;
-  tmp.data = new char[tmp + 1];
+  tmp.data = new char[tmp.len + 1];
   strcpy(tmp.data, s1.data);
   strcat(tmp.data, s2.data);
 
@@ -102,7 +102,7 @@ ostream& operator<<(ostream& os, const MyString& s)
 
 // get-from operator
 
-istream& operator>>(istream& is, const MyString& s)
+istream& operator>>(istream& is, MyString& s)
 {
   // a cheating way. Use C++'s string class
 
