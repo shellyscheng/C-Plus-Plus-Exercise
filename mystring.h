@@ -25,4 +25,31 @@ public:
 
   // copy assignment
   MyString& operator=(const MyString& s);
-}
+
+  // return the length of the string
+  int length() const { return len; }
+
+  // operator+
+  friend MyString operator+(const MyString& s1, const MyString& s2);
+
+  // put-to operator
+  friend ostream& operator<<(ostream& os, const MyString& s);
+
+  // get-from operator
+  friend istream& operator>>(istream& is, MyString& s);
+
+  // operator []
+  char& operator[](int i);
+
+  // operator[] const
+  const char& operator[](int i) const;
+
+
+private:
+  char *data;
+  int len;
+
+};
+
+
+#endif
