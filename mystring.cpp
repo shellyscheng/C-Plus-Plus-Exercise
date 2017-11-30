@@ -29,7 +29,7 @@ MyString::MyString(const char* p)
     strcpy(data, p);
   } else {
     data = new char[1];
-    data[0] = "\0";
+    data[0] = '\0';
     len = 0;
   }
 }
@@ -43,7 +43,7 @@ MyString::~MyString()
 
 //copy constructor
 
-MyString::Mystring(const Mystring& s)
+MyString::MyString(const MyString& s)
 {
   len = s.len;
 
@@ -77,7 +77,7 @@ MyString& MyString::operator=(const MyString& rhs)
 
 //operator +
 
-MyString operator+(const MyString& s1, const Mystring& s2)
+MyString operator+(const MyString& s1, const MyString& s2)
 {
   MyString tmp;
 
