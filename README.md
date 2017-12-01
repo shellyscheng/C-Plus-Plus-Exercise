@@ -3,8 +3,17 @@
 I just started to learn some C++ coding. Here are some of my practice code :D
 
 
-## b.cpp
-  constructor, destructor, copy constructor
+## Small C++ Practice
+- a.cpp
+- b.cpp
+- c.cpp
+- square_root.cpp
 
 ## MyString Class
-  operator overload
+operator overload
+
+- mystring.h
+- mystring.cpp
+- test1.cpp
+- test2.cpp
+- test3.cpp

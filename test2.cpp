@@ -20,5 +20,8 @@ int main() {
 
   cout << s1 + "world!" << endl;
 
+  //remember: the statment below is an error
+  //cout << "hello" + "world!" << endl;
+
   return 0;
 }
