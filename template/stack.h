@@ -50,3 +50,21 @@ void Stack<T>::reverse()
 {
   ::reverse(q.begin(), q.end()); // calling std::reverse
 }
+
+template <typename T>
+ostream& operator<<(ostream& os, const Stack<T>& rhs)
+{
+  os << "[";
+
+  // i is iterator
+  // "auto" mgiht need "-std=c++11" or "-std=c++0x" flags to complie
+  for (auto i = rhs.q.begin(); i != rhs.q.end(); ++i)
+  {
+    os << *i << " ";
+  }
+
+  os << "<";
+  return os;
+}
+
+#endif
