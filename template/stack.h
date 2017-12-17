@@ -2,8 +2,8 @@
  * stack.h
  */
 
-#ifdef _STACK_H_
-#define _STACK_H_
+#ifndef __STACK_H__
+#define __STACK_H__
 
 #include <deque>
 #include <algorithm>
@@ -34,7 +34,7 @@ public:
 
 private:
   deque<T> q; // double-ended queue
-}
+};
 
 
 template <typename T>
@@ -43,13 +43,13 @@ T Stack<T>::pop()
   T t = q.back(); // Access last element
   q.pop_back(); // Delete last element
   return t;
-}
+};
 
 template <typename T>
 void Stack<T>::reverse()
 {
   ::reverse(q.begin(), q.end()); // calling std::reverse
-}
+};
 
 template <typename T>
 ostream& operator<<(ostream& os, const Stack<T>& rhs)
@@ -65,6 +65,6 @@ ostream& operator<<(ostream& os, const Stack<T>& rhs)
 
   os << "<";
   return os;
-}
+};
 
 #endif

@@ -21,8 +21,8 @@ int main()
     cout << s << endl;
     cout << "popped" << s.pop() << endl;
     s.reverse();
-    cout << "revered the slack: " << s << endl;
-    count << endl;
+    cout << "reversed the slack: " << s << endl;
+    cout << endl;
   }
 
   return 0;
