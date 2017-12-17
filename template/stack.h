@@ -33,5 +33,20 @@ public:
   friend ostream& operator<< <T>(ostream& os, const Stack<T>& rhs);
 
 private:
-  deque<T> q;
+  deque<T> q; // double-ended queue
+}
+
+
+template <typename T>
+T Stack<T>::pop()
+{
+  T t = q.back(); // Access last element
+  q.pop_back(); // Delete last element
+  return t;
+}
+
+template <typename T>
+void Stack<T>::reverse()
+{
+  ::reverse(q.begin(), q.end()); // calling std::reverse
 }
