@@ -42,5 +42,38 @@ public:
     }
   }
 
-  
+  // assignment operator
+  // 
+  // - detach this SmartPtr from the underlying object and 
+  //   attach to the ojbect that sp is pointing to
+
+  SmartPtr<T>& operator=(const SmartPtr<T>& sp)
+  {
+    if(this != &sp) {
+      // first, detach
+      if (--*count == 0) {
+        delete count;
+        delete ptr;
+      }
+      // attach to the new object
+      ptr = sp.ptr;
+      count = sp.count;
+      ++*count;
+    }
+    return *this;
+  }
+
+  // operator*() and operator->() make SmartPtr class behave
+  // just like a regular pointer
+  T& operator*() const { return *ptr; }
+  T& operator->() const { return ptr; }
+
+  // access the underlying pointer for those cases when you need it
+  T* getPtr() const { return ptr; }
+
+  // operator void*() makes "if (sp) ..." possible
+  operator void*() const { return ptr;}
+
 }
+
+#endif
