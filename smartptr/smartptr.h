@@ -11,5 +11,25 @@ private:
 public:
   // constructor
   // - p is assumed to point to an object created by "new T(...)"
-  // - we hold the pointer and initalize ref count to 1
+  // - hold the pointer and initalize ref count to 1
+  //
+  // note: explicit keyword
+  // note: default argument
+  //
+
+  explicit SmartPtr(T *p = 0)
+  {
+    ptr = p;
+    cout = new int(1);
+  }
+
+  // copy constructor
+  // - copy the data member and increment the reference cout
+  // member initialziation syntax
+  SmartPtr(const SmartPtr<T>& sp) :: ptr(sp.ptr), count(sp.count)
+  {
+      ++*count;
+  }
+
+  
 }
