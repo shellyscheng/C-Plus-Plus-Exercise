@@ -31,5 +31,16 @@ public:
       ++*count;
   }
 
+  // destructor
+  //
+  // - delete the underlying object if this was the last owner
+  ~SmartPtr()
+  {
+    if(--*count == 0) {
+      delete count;
+      delete ptr;
+    }
+  }
+
   
 }
